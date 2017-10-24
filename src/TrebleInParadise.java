@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.io.File;
 
 
 public class TrebleInParadise {
@@ -56,7 +57,7 @@ public class TrebleInParadise {
 	 */
 	private void login() {
 		
-		loginPanel = new ImagePanel(new ImageIcon("assets\\img\\loginScreenBackdrop..png").getImage());
+		loginPanel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"loginScreenBackdrop.png").getImage());
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(loginPanel);
@@ -98,8 +99,7 @@ public class TrebleInParadise {
 	
 	private void levelScreen() {
 		
-		//We can change the background image to the right image once we have it
-		ImagePanel levelMenuPanel = new ImagePanel(new ImageIcon("assets\\img\\loginScreenBackdrop..png").getImage());
+		ImagePanel levelMenuPanel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelSelectBackground.png").getImage());
 		frame.getContentPane().add(levelMenuPanel);
 		
 		level1 = new JButton("1");
@@ -127,8 +127,7 @@ public class TrebleInParadise {
 	
 	private void level1() {
 		
-		//We can change the background image to the right image once we have it
-		ImagePanel level1Panel = new ImagePanel(new ImageIcon("assets\\img\\loginScreenBackdrop..png").getImage());
+		ImagePanel level1Panel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelBackgroundGreen.png").getImage());
 		frame.getContentPane().add(level1Panel);
 		
 		
