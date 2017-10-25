@@ -1,21 +1,20 @@
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.Image;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.ImageIcon;
+import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.io.File;
 
-
 public class TrebleInParadise {
 
-	private JFrame frame;
+	private JFrame frame = new JFrame();
 	private JTextField userField;
 	private JTextField passField;
 	private JButton startBtn;
@@ -58,7 +57,6 @@ public class TrebleInParadise {
 	private void login() {
 		
 		loginPanel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"loginScreenBackdrop.png").getImage());
-		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(loginPanel);
 		frame.pack();
@@ -136,39 +134,17 @@ public class TrebleInParadise {
 		level1Panel.add(logoutBtn); 
 		
 		level1Panel.setVisible(true);
+		Game currentRound = new Game(1);
 		
 		logoutBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				level1Panel.setVisible(false);
 				login();
 					
-				
 			}
 		});
 		
 	}
 	
-	private class ImagePanel extends JPanel {
-
-		  private Image img;
-
-		  public ImagePanel(String img) {
-		    this(new ImageIcon(img).getImage());
-		  }
-
-		  public ImagePanel(Image img) {
-		    this.img = img;
-		    Dimension size = new Dimension(img.getWidth(null), img.getHeight(null));
-		    setPreferredSize(size);
-		    setMinimumSize(size);
-		    setMaximumSize(size);
-		    setSize(size);
-		    setLayout(null);
-		  }
-
-		  public void paintComponent(Graphics g) {
-			  g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-		  }
-	}
 	
 }
