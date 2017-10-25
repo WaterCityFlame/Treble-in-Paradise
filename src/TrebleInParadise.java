@@ -178,6 +178,7 @@ public class TrebleInParadise {
 		
 		level1Panel.setVisible(true);
 		Game currentRound = new Game(1);
+		currentRound.display(level1Panel);
 		
 		logoutBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
