@@ -15,6 +15,8 @@ import java.awt.image.BufferedImage;
 import java.awt.Image;
 import java.io.*;
 import javax.swing.JLayeredPane;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class TrebleInParadise {
 
@@ -124,27 +126,80 @@ public class TrebleInParadise {
 		levelMenuPanel.setBounds(0,0,1240,877);
 		frame.add(levelMenuPanel);
 
+		//Level 1 label
+		JLabel level1Label = new JLabel("1");
+		level1Label.setFont(new Font("Serif", Font.PLAIN, 40));
+		level1Label.setBounds(50, 50, 50, 50);
+		level1Label.setLocation(100,200);
+		level1Label.setHorizontalTextPosition(SwingConstants.CENTER);
+		levelMenuPanel.add(level1Label);
+		
 		//Level 1 button
-		level1 = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"currentLevelButton.png"));
+		level1 = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"currentLevelButton.png"));	
 		level1.setBounds(18, 80, 209, 297);
 		level1.setLocation(5,50);
 		level1.setOpaque(false);
 		level1.setContentAreaFilled(false);
 		level1.setBorderPainted(false);
 		levelMenuPanel.add(level1);
-
+		
+		//Level 1 label
+		JLabel level2Label = new JLabel("2");
+		level2Label.setFont(new Font("Serif", Font.PLAIN, 40));
+		level2Label.setBounds(50, 50, 50, 50);
+		level2Label.setLocation(265,380);
+		level2Label.setHorizontalTextPosition(SwingConstants.CENTER);
+		levelMenuPanel.add(level2Label);
+		
+		//Level 2 button
+		level2 = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"lockedLevelButton.png"));
+		level2.setBounds(18, 80, 209, 297);
+		level2.setLocation(170,260);
+		level2.setOpaque(false);
+		level2.setContentAreaFilled(false);
+		level2.setBorderPainted(false);
+		levelMenuPanel.add(level2);
+		
+		//level 3 label
+		JLabel level3Label = new JLabel("3");
+		level3Label.setFont(new Font("Serif", Font.PLAIN, 40));
+		level3Label.setBounds(50, 50, 50, 50);
+		level3Label.setLocation(405,605);
+		level3Label.setHorizontalTextPosition(SwingConstants.CENTER);
+		levelMenuPanel.add(level3Label);
+		
+		//Boss level label
+		JLabel bossLabel = new JLabel("4");
+		bossLabel.setFont(new Font("Serif", Font.PLAIN, 40));
+		bossLabel.setBounds(50, 50, 50, 50);
+		bossLabel.setLocation(665,620);
+		bossLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+		levelMenuPanel.add(bossLabel);
+		
+		//Log out button
+		JButton logoutBtn = new JButton("Logout");
+		logoutBtn.setBounds(50, 100, 100, 30);
+		logoutBtn.setLocation(1050,60);
+		levelMenuPanel.add(logoutBtn); 
+		
+		//Label with user's name
+		JLabel userLabel = new JLabel(username);
+		userLabel.setFont(new Font("Serif", Font.PLAIN, 40));
+		userLabel.setBounds(50, 100, 100, 30);
+		userLabel.setLocation(1050,20);
+		levelMenuPanel.add(userLabel); 
+		
 		//Inserting ImagePanels into LayeredPanel
 		levelMenuPanel.add(levelLockedPanel);
-		levelMenuPanel.add(levelLockedPanel1);
 		levelMenuPanel.add(levelLockedBossPanel);
 		levelMenuPanel.add(levelLinePanel);
 		levelMenuPanel.add(levelBackgroundPanel);
 		
 		//Repositioning images
 		levelLockedPanel.setLocation(350,575);
-		levelLockedPanel1.setLocation(205,340);
 		levelLockedBossPanel.setLocation(600,565);
 		levelBackgroundPanel.setLocation(0,0);
+		
 
 		frame.pack();
 		frame.setSize(1240,877);
@@ -154,6 +209,15 @@ public class TrebleInParadise {
 		//levelMenuPanel.add(level2); 
 		
 		levelMenuPanel.setVisible(true);
+		
+		logoutBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				levelMenuPanel.setVisible(false);
+				login();
+					
+				
+			}
+		});
 		
 		level1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -169,22 +233,63 @@ public class TrebleInParadise {
 		
 		ImagePanel level1Panel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelBackgroundGreen.png").getImage());
 		frame.getContentPane().add(level1Panel);
-
 		
+		//Back Button
+        JButton backButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"backButton.png"));	
+        backButton.setBounds(0, 80, 209, 297);
+        backButton.setLocation(1050, 2);
+        backButton.setOpaque(false);
+        backButton.setContentAreaFilled(false);
+        backButton.setBorderPainted(false);
+		level1Panel.add(backButton);
 		
-		JButton logoutBtn = new JButton("Logout");
-		logoutBtn.setBounds(158, 98, 73, 57);
-		level1Panel.add(logoutBtn); 
+		//Restart Button
+		 JButton restartButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"restartButton.png"));	
+		 restartButton.setBounds(0, 80, 209, 297);
+		 restartButton.setLocation(960, 2);
+		 restartButton.setOpaque(false);
+		 restartButton.setContentAreaFilled(false);
+		 restartButton.setBorderPainted(false);
+	     level1Panel.add(restartButton);
+	     
+	     //Pause Button
+	     JButton pauseButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"pauseButton.png"));	
+	     pauseButton.setBounds(0, 80, 209, 297);
+	     pauseButton.setLocation(880, 2);
+	     pauseButton.setOpaque(false);
+	     pauseButton.setContentAreaFilled(false);
+	     pauseButton.setBorderPainted(false);
+	     level1Panel.add(pauseButton);
+	     
+	     //Score Text
+	     JLabel scoreText = new JLabel(new ImageIcon("assets"+File.separator+"img"+File.separator+"scoreText.png"));
+	     scoreText.setBounds(0, 80, 209, 297);
+	     scoreText.setLocation(0, 2);
+	     scoreText.setOpaque(false);
+	     level1Panel.add(scoreText);
+	     
+	     //Level Text
+	     JLabel levelText = new JLabel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelText.png"));
+	     levelText.setBounds(0, 80, 209, 297);
+	     levelText.setLocation(430, 2);
+	     levelText.setOpaque(false);
+	     level1Panel.add(levelText);
 		
 		level1Panel.setVisible(true);
 		Game currentRound = new Game(1);
 		currentRound.display(level1Panel);
 		
-		logoutBtn.addActionListener(new ActionListener() {
+		//Label with user's name
+		JLabel userLabel = new JLabel(username);
+		userLabel.setFont(new Font("Serif", Font.PLAIN, 40));
+		userLabel.setBounds(50, 100, 100, 30);
+		userLabel.setLocation(1050,20);
+		level1Panel.add(userLabel); 
+		
+		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				level1Panel.setVisible(false);
-				login();
-					
+					level1Panel.setVisible(false);
+					levelScreen();
 				
 			}
 		});
