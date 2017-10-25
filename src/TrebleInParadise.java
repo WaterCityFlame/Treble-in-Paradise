@@ -11,26 +11,34 @@ import javax.swing.ImageIcon;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.awt.Image;
 import java.io.*;
 import javax.swing.JLayeredPane;
 
 public class TrebleInParadise {
 
-	private JFrame frame = new JFrame();
+	private JFrame frame;
 	private JTextField userField;
 	private JTextField passField;
 	private JButton startBtn;
 	
-	//Dummy user and password
-	private String username = "test1";
-	private String password = "pass";
+	//Dummy user and password 
+	private String username = "";
+	private String password = "";
 	private JButton level1;
 	private JButton level2;
 	
 	private ImagePanel loginPanel;
 	private ImagePanel levelMenuPanel;
+	private	ImagePanel levelLinePanel;
+	private	ImagePanel levelCompletePanel;
+	private ImagePanel levelCurrentPanel;
+	private ImagePanel levelLockedPanel;
+	private ImagePanel levelLockedPanel1;
+	private ImagePanel levelLockedBossPanel;
 	private ImagePanel level1Panel;
+	private ImagePanel levelBackgroundPanel;
 
 	/**
 	 * Launch the application.
@@ -59,27 +67,31 @@ public class TrebleInParadise {
 	 */
 	private void login() {
 		
-		loginPanel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"loginScreenBackdrop.png").getImage());
+		loginPanel = new ImagePanel(new ImageIcon("assets\\img\\loginScreenBackdrop.png").getImage());
+		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(loginPanel);
 		frame.pack();
+		frame.setSize(1240,877);
 		frame.setVisible(true);
-	        
+	    
         userField=new JTextField();
         userField.setBounds(5, 5, 280, 50);
         userField.setHorizontalAlignment(JTextField.CENTER);
-        userField.setLocation(550,300);
+        userField.setLocation(482,300);
         loginPanel.add(userField);
         
         passField=new JTextField();
         passField.setBounds(5, 5, 280, 50);
         passField.setHorizontalAlignment(JTextField.CENTER);
-        passField.setLocation(550,400);
+        passField.setLocation(482,400);
         loginPanel.add(passField);
         
-        startBtn=new JButton("START");
-        startBtn.setBounds(5, 5, 280, 50);
-        startBtn.setLocation(550,500);
+        ImageIcon imgIconPlayButton = new ImageIcon("assets\\img\\loginScreenPlayButton.png");
+        Image imgPlayButton = imgIconPlayButton.getImage();
+        startBtn=new JButton(new ImageIcon(imgPlayButton.getScaledInstance(275,70,java.awt.Image.SCALE_SMOOTH)));
+        startBtn.setBounds(5, 5, 280, 75);
+        startBtn.setLocation(482,500);
         loginPanel.add(startBtn);
         
 		
@@ -99,17 +111,48 @@ public class TrebleInParadise {
 	}
 	
 	private void levelScreen() {
-		
-		ImagePanel levelMenuPanel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelSelectBackground.png").getImage());
-		frame.getContentPane().add(levelMenuPanel);
-		
-		level1 = new JButton("1");
-		level1.setBounds(33, 98, 73, 57);
+
+		//Created ImagePanels to be inserted into a LayeredPanel when necessary
+		levelLinePanel = new ImagePanel(new ImageIcon("assets\\img\\levelLine.png").getImage());
+		levelBackgroundPanel = new ImagePanel(new ImageIcon("assets\\img\\levelSelectBackground.png").getImage());
+		//levelCompletePanel = new ImagePanel(new ImageIcon("assets\\img\\completedLevelButton.png").getImage());
+		//levelCurrentPanel = new ImagePanel(new ImageIcon("assets\\img\\currentLevelButton.png").getImage());
+		levelLockedPanel = new ImagePanel(new ImageIcon("assets\\img\\lockedLevelButton.png").getImage());
+		levelLockedPanel1 = new ImagePanel(new ImageIcon("assets\\img\\lockedLevelButton.png").getImage());
+		levelLockedBossPanel = new ImagePanel(new ImageIcon("assets\\img\\lockedBossLevelButton.png").getImage());
+
+		JLayeredPane levelMenuPanel = new JLayeredPane();
+		levelMenuPanel.setBounds(0,0,1240,877);
+		frame.add(levelMenuPanel);
+
+		//Level 1 button
+		level1 = new JButton(new ImageIcon("assets\\img\\currentLevelButton.png"));
+		level1.setBounds(18, 80, 209, 297);
+		level1.setLocation(5,50);
+		level1.setOpaque(false);
+		level1.setContentAreaFilled(false);
+		level1.setBorderPainted(false);
 		levelMenuPanel.add(level1);
+
+		//Inserting ImagePanels into LayeredPanel
+		levelMenuPanel.add(levelLockedPanel);
+		levelMenuPanel.add(levelLockedPanel1);
+		levelMenuPanel.add(levelLockedBossPanel);
+		levelMenuPanel.add(levelLinePanel);
+		levelMenuPanel.add(levelBackgroundPanel);
 		
-		level2 = new JButton("2");
-		level2.setBounds(158, 98, 73, 57);
-		levelMenuPanel.add(level2); 
+		//Repositioning images
+		levelLockedPanel.setLocation(350,575);
+		levelLockedPanel1.setLocation(205,340);
+		levelLockedBossPanel.setLocation(600,565);
+		levelBackgroundPanel.setLocation(0,0);
+
+		frame.pack();
+		frame.setSize(1240,877);
+		
+		//level2 = new JButton("2");
+		//level2.setBounds(158, 98, 73, 57);
+		//levelMenuPanel.add(level2); 
 		
 		levelMenuPanel.setVisible(true);
 		
@@ -121,14 +164,12 @@ public class TrebleInParadise {
 				
 			}
 		});
-		
-		
-		
 	}
 	
 	private void level1() {
 		
-		ImagePanel level1Panel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelBackgroundGreen.png").getImage());
+		//We can change the background image to the right image once we have it
+		ImagePanel level1Panel = new ImagePanel(new ImageIcon("assets\\img\\levelBackgroundGreen.png").getImage());
 		frame.getContentPane().add(level1Panel);
 		
 		
@@ -137,17 +178,39 @@ public class TrebleInParadise {
 		level1Panel.add(logoutBtn); 
 		
 		level1Panel.setVisible(true);
-		Game currentRound = new Game(1);
 		
 		logoutBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				level1Panel.setVisible(false);
 				login();
 					
+				
 			}
 		});
 		
 	}
 	
+	private class ImagePanel extends JPanel {
+
+		  private Image img;
+
+		  public ImagePanel(String img) {
+		    this(new ImageIcon(img).getImage());
+		  }
+
+		  public ImagePanel(Image img) {
+		    this.img = img;
+		    Dimension size = new Dimension(img.getWidth(null), img.getHeight(null));
+		    setPreferredSize(size);
+		    setMinimumSize(size);
+		    setMaximumSize(size);
+		    setSize(size);
+		    setLayout(null);
+		  }
+
+		  public void paintComponent(Graphics g) {
+			  g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+		  }
+	}
 	
 }
