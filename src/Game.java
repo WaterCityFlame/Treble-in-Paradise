@@ -77,13 +77,13 @@ public class Game {
 	};
 
 	public void play() {
-		Timer songLength = new Timer();	
+		Timer songLength = new Timer();
 		TimerTask move   = new MoveNotesTimerTask();
 		TimerTask end    = new EndGameTimerTask(move);
 		songLength.schedule(move, 0, 5);
 		songLength.schedule(end, 15*1000);
 	};
-	
+
 	public void moveNotes() {
 		for (int i = 0; i<TunePanels.size(); i++) {
 			JPanel p = TunePanels.get(i);
@@ -102,7 +102,7 @@ public class Game {
 				currentNote = Tune.get(i).tone;
 			}
 		}
-			
+
 	}
 
 	public void endGame() {
@@ -113,7 +113,6 @@ public class Game {
 			System.out.println(points);
 		} else {
 			System.out.println("you lose!");
-			System.out.println(points);
 		}
 	}
 
@@ -139,7 +138,7 @@ public class Game {
 			checkCollision();
 		}
 	}
-	
+
 	//class for each note image flying by.
 	private class Note {
 		public String tone;
