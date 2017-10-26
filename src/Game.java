@@ -9,7 +9,6 @@ import javax.swing.JTextField;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.TimerTask;
 import java.util.Timer;
@@ -19,20 +18,13 @@ public class Game {
 	private ArrayList<Note> Tune;
 	public ArrayList<ImagePanel> TunePanels;
 	public JPanel Notes;
-	public JPanel blueBox;
-	public String currentNote;
-	public boolean stillPlaying;
-	public int points;
-	private int minPoints;
+	public boolean win;
 
 	public Game(int level) {
 		Tune = new ArrayList<Note>();
 		TunePanels = new ArrayList<ImagePanel>();
 		Notes = new JPanel();
-		blueBox = new JPanel();
-		stillPlaying = true;
-		currentNote = "x";
-		points = 0;
+		win = false;
 		if (level == 1) {
 			Tune.add(new Note("b", 1));
 			Tune.add(new Note("a", 1));
@@ -42,7 +34,6 @@ public class Game {
 			Tune.add(new Note("a", 1));
 			Tune.add(new Note("g", 1));
 			Tune.add(new Note("g", 1));
-			minPoints = 30;
 		}
 	};
 
@@ -54,25 +45,20 @@ public class Game {
 		Notes.setOpaque(false);
 		Notes.setLayout(null);
 
-		blueBox.setSize(new Dimension(140, 360));
-		blueBox.setLocation(140, 330);
-		blueBox.setOpaque(false);
-
 		for (int i = 0; i<Tune.size(); i++) {
 			ImagePanel currentNote = Tune.get(i).noteImg;
 			currentNote.setLocation(x, Tune.get(i).height);
 			currentNote.setVisible(true);
 			Notes.add(currentNote);
 			TunePanels.add(currentNote);
-			x += 220;
+			x += 190;
 		}
 		Notes.setLocation(1240,1);
 		for (int i = 0; i<TunePanels.size(); i++) {
 			JPanel p = TunePanels.get(i);
 			p.setLocation(p.getX()+1240, p.getY());
 		}
-		background.getContentPane().add(blueBox, 2);
-		background.getContentPane().add(Notes, 3);
+		background.getContentPane().add(Notes, 2);
 
 	};
 
@@ -91,30 +77,8 @@ public class Game {
 		}
 	}
 
-	public void checkCollision() {
-		Rectangle noteBounds;
-		Rectangle box = blueBox.getBounds();
-		currentNote = "x";
-		for (int i = 0; i<TunePanels.size(); i++) {
-			JPanel p = TunePanels.get(i);
-			noteBounds = p.getBounds();
-			if (noteBounds.intersects(box)) {
-				currentNote = Tune.get(i).tone;
-			}
-		}
-			
-	}
-
-	public void endGame() {
-		stillPlaying = false;
+	public void endGame(boolean won) {
 		System.out.println("end of game");
-		if (points >= minPoints) {
-			System.out.println("you win!");
-			System.out.println(points);
-		} else {
-			System.out.println("you lose!");
-			System.out.println(points);
-		}
 	}
 
 	private class EndGameTimerTask extends TimerTask {
@@ -125,7 +89,7 @@ public class Game {
 
 		@Override
 		public void run(){
-			endGame();
+			endGame(win);
 			endThis.cancel();
 		}
 	}
@@ -136,7 +100,6 @@ public class Game {
 		@Override
 		public void run(){
 			moveNotes();
-			checkCollision();
 		}
 	}
 	
