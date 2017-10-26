@@ -211,7 +211,7 @@ public class TrebleInParadise {
         logoutBtn.setBorderPainted(false);
 		levelMenuPanel.add(logoutBtn);
 
-		//Label with user's name
+		//Label with user name
 		JLabel userLabel = new JLabel(username);
 		userLabel.setFont(new Font("Serif", Font.BOLD, 40));
 		userLabel.setBounds(50, 100, 100, 30);
