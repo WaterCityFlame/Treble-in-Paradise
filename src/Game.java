@@ -38,7 +38,7 @@ public class Game {
 	};
 
 	public void display(JFrame background) {
-		int x = 100;
+		int x = 0;
 		Notes.setPreferredSize(new Dimension(5000, 877));
 		Notes.setSize(new Dimension(5000, 877));
 		Notes.setLocation(1,1);
@@ -51,7 +51,12 @@ public class Game {
 			currentNote.setVisible(true);
 			Notes.add(currentNote);
 			TunePanels.add(currentNote);
-			x += 200;
+			x += 190;
+		}
+		Notes.setLocation(1240,1);
+		for (int i = 0; i<TunePanels.size(); i++) {
+			JPanel p = TunePanels.get(i);
+			p.setLocation(p.getX()+1240, p.getY());
 		}
 		background.getContentPane().add(Notes, 2);
 
@@ -66,9 +71,10 @@ public class Game {
 	};
 	
 	public void moveNotes() {
-		int x = Notes.getX();
-		int y = Notes.getY();
-		Notes.setLocation(x-1, y);
+		for (int i = 0; i<TunePanels.size(); i++) {
+			JPanel p = TunePanels.get(i);
+			p.setLocation(p.getX()-1, p.getY());
+		}
 	}
 
 	public void endGame(boolean won) {
