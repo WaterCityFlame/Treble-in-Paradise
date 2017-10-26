@@ -260,6 +260,8 @@ public class TrebleInParadise {
 		
 		ImagePanel level1Panel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelBackgroundGreen.png").getImage());
 		frame.getContentPane().add(level1Panel);
+		Game currentRound = new Game(1);
+		currentRound.display(frame);
 		
 		//Back Button
         JButton backButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"backButton.png"));	
@@ -332,12 +334,28 @@ public class TrebleInParadise {
 			aButton.setBounds(100, 100, 150, 150);
 			aButton.setLocation(25,580);
 			level1Panel.add(aButton); 
+
+			aButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (currentRound.currentNote.equals("a")) {
+						currentRound.points++;
+					}
+				}
+			});
 					
 			//B Button
 			JButton bButton = new JButton("B");
 			bButton.setBounds(100, 100, 150, 150);
 			bButton.setLocation(188,580);
 			level1Panel.add(bButton); 
+					
+			bButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (currentRound.currentNote.equals("b")) {
+						currentRound.points++;
+					}
+				}
+			});
 					
 			//C Button
 			JButton cButton = new JButton("C");
@@ -369,10 +387,16 @@ public class TrebleInParadise {
 			gButton.setLocation(1060,580);
 			level1Panel.add(gButton);
 			
+			gButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (currentRound.currentNote.equals("g")) {
+						currentRound.points++;
+					}
+				}
+			});
+					
 		
 		level1Panel.setVisible(true);
-		Game currentRound = new Game(1);
-		currentRound.display(frame);
 		currentRound.play();
 		
 		//Label with user's name
