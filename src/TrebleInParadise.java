@@ -268,7 +268,7 @@ public class TrebleInParadise {
 		//Back Button
         JButton backButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"backButton.png"));	
         backButton.setBounds(0, 0, 67, 34);
-        backButton.setLocation(840, 2);
+        backButton.setLocation(840, 2;
         backButton.setOpaque(false);
         backButton.setContentAreaFilled(false);
         backButton.setBorderPainted(false);
