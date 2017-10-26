@@ -44,6 +44,7 @@ public class TrebleInParadise {
 	private ImagePanel level1Panel;
 	private ImagePanel levelBackgroundPanel;
 
+	private Sound sound = new Sound();
 
 	/**
 	 * Launch the application.
@@ -298,6 +299,14 @@ public class TrebleInParadise {
 	     scoreText.setLocation(0, 2);
 	     scoreText.setOpaque(false);
 	     level1Panel.add(scoreText);
+	     
+	     //Score Value
+	     JLabel scoreValue = new JLabel("0");
+	     scoreValue.setFont(new Font("Serif", Font.PLAIN, 65));
+	     scoreValue.setBounds(50, 50, 50, 50);
+	     scoreValue.setLocation(250,125);
+	     scoreValue.setOpaque(false);
+	     level1Panel.add(scoreValue);
 
 	     //Level Text
 	     JLabel levelText = new JLabel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelText.png"));
@@ -341,7 +350,9 @@ public class TrebleInParadise {
 				public void actionPerformed(ActionEvent e) {
 					if (currentRound.currentNote.equals("a")) {
 						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
 					}
+					sound.noteSound("a");
 				}
 			});
 
@@ -355,7 +366,9 @@ public class TrebleInParadise {
 				public void actionPerformed(ActionEvent e) {
 					if (currentRound.currentNote.equals("b")) {
 						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
 					}
+					sound.noteSound("b");
 				}
 			});
 
@@ -365,11 +378,31 @@ public class TrebleInParadise {
 			cButton.setLocation(377,690);
 			level1Panel.add(cButton);
 
+			cButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (currentRound.currentNote.equals("c")) {
+						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
+					}
+					sound.noteSound("c");
+				}
+			});
+
 			//D Button
 			JButton dButton = new JButton("D");
 			dButton.setBounds(100, 100, 150, 150);
 			dButton.setLocation(565,690);
 			level1Panel.add(dButton);
+
+			dButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (currentRound.currentNote.equals("d")) {
+						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
+					}
+					sound.noteSound("d");
+				}
+			});
 
 			//E Button
 			JButton eButton = new JButton("E");
@@ -377,11 +410,31 @@ public class TrebleInParadise {
 			eButton.setLocation(740,690);
 			level1Panel.add(eButton);
 
+			eButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (currentRound.currentNote.equals("e")) {
+						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
+					}
+					sound.noteSound("e");
+				}
+			});
+
 			//F Button
 			JButton fButton = new JButton("F");
 			fButton.setBounds(100, 100, 150, 150);
 			fButton.setLocation(900,690);
 			level1Panel.add(fButton);
+
+			fButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (currentRound.currentNote.equals("f")) {
+						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
+					}
+					sound.noteSound("f");
+				}
+			});
 
 			//G Button
 			JButton gButton = new JButton("G");
@@ -393,7 +446,9 @@ public class TrebleInParadise {
 				public void actionPerformed(ActionEvent e) {
 					if (currentRound.currentNote.equals("g")) {
 						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
 					}
+					sound.noteSound("g");
 				}
 			});
 

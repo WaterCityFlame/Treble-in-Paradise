@@ -19,6 +19,18 @@ public class Sound{
 			case "b":
 				noteChosen = "assets"+File.separator+"sound"+File.separator+"b1.wav";
 				break;
+			case "c":
+				noteChosen = "assets"+File.separator+"sound"+File.separator+"c1.wav";
+				break;
+			case "d":
+				noteChosen = "assets"+File.separator+"sound"+File.separator+"d1.wav";
+				break;
+			case "e":
+				noteChosen = "assets"+File.separator+"sound"+File.separator+"e1.wav";
+				break;
+			case "f":
+				noteChosen = "assets"+File.separator+"sound"+File.separator+"f1.wav";
+				break;
 			case "g":
 				noteChosen = "assets"+File.separator+"sound"+File.separator+"g1.wav";
 				break;
