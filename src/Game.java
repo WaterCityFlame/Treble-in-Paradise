@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.TimerTask;
 import java.util.Timer;
@@ -18,13 +19,17 @@ public class Game {
 	private ArrayList<Note> Tune;
 	public ArrayList<ImagePanel> TunePanels;
 	public JPanel Notes;
+	public JPanel blueBox;
 	public boolean win;
+	public boolean stillPlaying;
 
 	public Game(int level) {
 		Tune = new ArrayList<Note>();
 		TunePanels = new ArrayList<ImagePanel>();
 		Notes = new JPanel();
+		blueBox = new JPanel();
 		win = false;
+		stillPlaying = true;
 		if (level == 1) {
 			Tune.add(new Note("b", 1));
 			Tune.add(new Note("a", 1));
@@ -45,20 +50,25 @@ public class Game {
 		Notes.setOpaque(false);
 		Notes.setLayout(null);
 
+		blueBox.setSize(new Dimension(140, 360));
+		blueBox.setLocation(140, 330);
+		blueBox.setOpaque(false);
+
 		for (int i = 0; i<Tune.size(); i++) {
 			ImagePanel currentNote = Tune.get(i).noteImg;
 			currentNote.setLocation(x, Tune.get(i).height);
 			currentNote.setVisible(true);
 			Notes.add(currentNote);
 			TunePanels.add(currentNote);
-			x += 190;
+			x += 220;
 		}
 		Notes.setLocation(1240,1);
 		for (int i = 0; i<TunePanels.size(); i++) {
 			JPanel p = TunePanels.get(i);
 			p.setLocation(p.getX()+1240, p.getY());
 		}
-		background.getContentPane().add(Notes, 2);
+		background.getContentPane().add(blueBox, 2);
+		background.getContentPane().add(Notes, 3);
 
 	};
 
@@ -77,8 +87,22 @@ public class Game {
 		}
 	}
 
+	public void checkCollision() {
+		Rectangle noteBounds;
+		Rectangle box = blueBox.getBounds();
+		for (int i = 0; i<TunePanels.size(); i++) {
+			JPanel p = TunePanels.get(i);
+			noteBounds = p.getBounds();
+			if (noteBounds.intersects(box)) {
+				System.out.println(Tune.get(i).tone);
+			}
+		}
+			
+	}
+
 	public void endGame(boolean won) {
 		System.out.println("end of game");
+		stillPlaying = false;
 	}
 
 	private class EndGameTimerTask extends TimerTask {
@@ -100,6 +124,7 @@ public class Game {
 		@Override
 		public void run(){
 			moveNotes();
+			checkCollision();
 		}
 	}
 	
