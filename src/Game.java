@@ -29,7 +29,8 @@ public class Game {
 
 	public int points;
 	private int minPoints;
-
+	
+	
 	public Game(int level) {
 		
 		tune = new ArrayList<Note>();

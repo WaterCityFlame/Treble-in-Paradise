@@ -28,8 +28,8 @@ public class TrebleInParadise {
 	private JButton startBtn;
 
 	//Dummy user and password
-	private String username = "";
-	private String password = "";
+	private String username = "Test";
+	private String password = "pass";
 	private JButton level1;
 	private JButton level2;
 
@@ -136,7 +136,7 @@ public class TrebleInParadise {
       	new Timer(delay, taskPerformer).start();
 	}
 
-	private void levelScreen() {
+	public void levelScreen() {
 
 		//Created ImagePanels to be inserted into a LayeredPanel when necessary
 		levelLinePanel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelLine.png").getImage());
@@ -203,13 +203,17 @@ public class TrebleInParadise {
 
 		//Log out button
 		JButton logoutBtn = new JButton("Logout");
-		logoutBtn.setBounds(50, 100, 100, 30);
+		logoutBtn.setBounds(50, 100, 200, 30);
 		logoutBtn.setLocation(1050,60);
+		logoutBtn.setFont(new Font("Serif", Font.PLAIN, 30));
+		logoutBtn.setOpaque(false);
+        logoutBtn.setContentAreaFilled(false);
+        logoutBtn.setBorderPainted(false);
 		levelMenuPanel.add(logoutBtn);
 
 		//Label with user's name
 		JLabel userLabel = new JLabel(username);
-		userLabel.setFont(new Font("Serif", Font.PLAIN, 40));
+		userLabel.setFont(new Font("Serif", Font.BOLD, 40));
 		userLabel.setBounds(50, 100, 100, 30);
 		userLabel.setLocation(1050,20);
 		levelMenuPanel.add(userLabel);
@@ -345,6 +349,7 @@ public class TrebleInParadise {
 		JButton aButton = new JButton("A");
 		aButton.setBounds(100, 100, 150, 150);
 		aButton.setLocation(25,690);
+		aButton.setFont(new Font("Serif", Font.PLAIN, 100));
 		level1Panel.add(aButton);
 		aButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -361,6 +366,7 @@ public class TrebleInParadise {
 		bButton.setBounds(100, 100, 150, 150);
 		bButton.setLocation(188,690);
 		level1Panel.add(bButton);
+		bButton.setFont(new Font("Serif", Font.PLAIN, 100));
 		bButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (currentRound.currentNote.equals("b")) {
@@ -375,6 +381,7 @@ public class TrebleInParadise {
 		JButton cButton = new JButton("C");
 		cButton.setBounds(100, 100, 150, 150);
 		cButton.setLocation(377,690);
+		cButton.setFont(new Font("Serif", Font.PLAIN, 100));
 		level1Panel.add(cButton);
 		cButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -390,6 +397,7 @@ public class TrebleInParadise {
 		JButton dButton = new JButton("D");
 		dButton.setBounds(100, 100, 150, 150);
 		dButton.setLocation(565,690);
+		dButton.setFont(new Font("Serif", Font.PLAIN, 100));
 		level1Panel.add(dButton);
 		dButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -405,6 +413,7 @@ public class TrebleInParadise {
 		JButton eButton = new JButton("E");
 		eButton.setBounds(100, 100, 150, 150);
 		eButton.setLocation(740,690);
+		eButton.setFont(new Font("Serif", Font.PLAIN, 100));
 		level1Panel.add(eButton);
 		eButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -420,6 +429,7 @@ public class TrebleInParadise {
 		JButton fButton = new JButton("F");
 		fButton.setBounds(100, 100, 150, 150);
 		fButton.setLocation(900,690);
+		fButton.setFont(new Font("Serif", Font.PLAIN, 100));
 		level1Panel.add(fButton);
 		fButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -435,6 +445,7 @@ public class TrebleInParadise {
 		JButton gButton = new JButton("G");
 		gButton.setBounds(100, 100, 150, 150);
 		gButton.setLocation(1060,690);
+		gButton.setFont(new Font("Serif", Font.PLAIN, 100));
 		level1Panel.add(gButton);
 		gButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -470,6 +481,13 @@ public class TrebleInParadise {
 					currentRound.points = 0;
 					scoreValue.setText("" + currentRound.points);
 					currentRound.display(frame);
+
+			}
+		});
+		
+		pauseButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
 
 			}
 		});
