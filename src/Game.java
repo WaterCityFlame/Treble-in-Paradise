@@ -1,4 +1,5 @@
 import java.io.File;
+import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -76,10 +77,10 @@ public class Game {
 
 	};
 
-	public void play() {
+	public void play(JFrame background) {
 		Timer songLength = new Timer();
 		TimerTask move   = new MoveNotesTimerTask();
-		TimerTask end    = new EndGameTimerTask(move);
+		TimerTask end    = new EndGameTimerTask(move, background);
 		songLength.schedule(move, 0, 5);
 		songLength.schedule(end, 15*1000);
 	};
@@ -105,26 +106,46 @@ public class Game {
 
 	}
 
-	public void endGame() {
+	public void endGame(JFrame background) {
 		stillPlaying = false;
 		System.out.println("end of game");
+		JPanel popup = new ImagePanel("assets"+File.separator+"img"+File.separator+"popupBase.png");
+		popup.setLocation(250, 50);
+		popup.setVisible(true);
 		if (points >= minPoints) {
 			System.out.println("you win!");
 			System.out.println(points);
+			JLabel winLabel = new JLabel("You Win!");
+			winLabel.setFont(new Font("Serif", Font.PLAIN, 40));
+			winLabel.setBounds(50, 100, 300, 80);
+			winLabel.setLocation(250, 300);
+
+			popup.add(winLabel);
 		} else {
 			System.out.println("you lose!");
+			System.out.println(points);
+			JLabel lossLabel = new JLabel("You lost :(");
+			lossLabel.setFont(new Font("Serif", Font.PLAIN, 40));
+			lossLabel.setBounds(100, 300, 300, 80);
+			lossLabel.setLocation(250, 300);
+			popup.add(lossLabel);
 		}
+		background.getContentPane().removeAll();
+		background.repaint();
+		background.getContentPane().add(popup);
 	}
 
 	private class EndGameTimerTask extends TimerTask {
 		TimerTask endThis;
-		public EndGameTimerTask(TimerTask e) {
+		JFrame background;
+		public EndGameTimerTask(TimerTask e, JFrame bg) {
 			endThis = e;
+			background = bg;
 		}
 
 		@Override
 		public void run(){
-			endGame();
+			endGame(background);
 			endThis.cancel();
 		}
 	}

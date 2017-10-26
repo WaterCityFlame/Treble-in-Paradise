@@ -397,7 +397,6 @@ public class TrebleInParadise {
 				}
 			});
 
-		currentRound.play();
 
 		//Label with user's name
 		JLabel userLabel = new JLabel(username);
@@ -436,7 +435,7 @@ public class TrebleInParadise {
 		   new Timer(delay, taskPerformer).start();
 
 
-		currentRound.play();
+		currentRound.play(frame);
 	}
 
 
