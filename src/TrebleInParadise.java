@@ -277,7 +277,8 @@ public class TrebleInParadise {
 		
 		level1Panel.setVisible(true);
 		Game currentRound = new Game(1);
-		currentRound.display(level1Panel);
+		currentRound.display(frame);
+		currentRound.play();
 		
 		//Label with user's name
 		JLabel userLabel = new JLabel(username);
