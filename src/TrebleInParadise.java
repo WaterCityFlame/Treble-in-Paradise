@@ -260,6 +260,10 @@ public class TrebleInParadise {
 		
 		ImagePanel level1Panel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelBackgroundGreen.png").getImage());
 		frame.getContentPane().add(level1Panel);
+
+		level1Panel.setVisible(true);
+		Game currentRound = new Game(1);
+		currentRound.display(frame);
 		
 		//Back Button
         JButton backButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"backButton.png"));	
@@ -332,6 +336,15 @@ public class TrebleInParadise {
 			aButton.setBounds(100, 100, 150, 150);
 			aButton.setLocation(25,580);
 			level1Panel.add(aButton); 
+
+			aButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (currentRound.currentNote.equals("a")) {
+						currentRound.points++;	
+						System.out.println("a");
+					}
+				}
+			});
 					
 			//B Button
 			JButton bButton = new JButton("B");
@@ -339,6 +352,15 @@ public class TrebleInParadise {
 			bButton.setLocation(188,580);
 			level1Panel.add(bButton); 
 					
+			bButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (currentRound.currentNote.equals("b")) {
+						currentRound.points++;	
+						System.out.println("b");
+					}
+				}
+			});
+
 			//C Button
 			JButton cButton = new JButton("C");
 			cButton.setBounds(100, 100, 150, 150);
@@ -369,11 +391,16 @@ public class TrebleInParadise {
 			gButton.setLocation(1060,580);
 			level1Panel.add(gButton);
 			
+			gButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (currentRound.currentNote.equals("g")) {
+						currentRound.points++;	
+						System.out.println("g");
+					}
+				}
+			});
+
 		
-		level1Panel.setVisible(true);
-		Game currentRound = new Game(1);
-		currentRound.display(frame);
-		currentRound.play();
 		
 		//Label with user's name
 		JLabel userLabel = new JLabel(username);
@@ -412,6 +439,7 @@ public class TrebleInParadise {
 		   new Timer(delay, taskPerformer).start();
 	
 		
+		currentRound.play();
 	}
 	
 	

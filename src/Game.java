@@ -20,16 +20,19 @@ public class Game {
 	public ArrayList<ImagePanel> TunePanels;
 	public JPanel Notes;
 	public JPanel blueBox;
-	public boolean win;
+	public String currentNote;
 	public boolean stillPlaying;
+	public int points;
+	private int minPoints;
 
 	public Game(int level) {
 		Tune = new ArrayList<Note>();
 		TunePanels = new ArrayList<ImagePanel>();
 		Notes = new JPanel();
 		blueBox = new JPanel();
-		win = false;
 		stillPlaying = true;
+		currentNote = "x";
+		points = 0;
 		if (level == 1) {
 			Tune.add(new Note("b", 1));
 			Tune.add(new Note("a", 1));
@@ -39,6 +42,7 @@ public class Game {
 			Tune.add(new Note("a", 1));
 			Tune.add(new Note("g", 1));
 			Tune.add(new Note("g", 1));
+			minPoints = 30;
 		}
 	};
 
@@ -90,19 +94,27 @@ public class Game {
 	public void checkCollision() {
 		Rectangle noteBounds;
 		Rectangle box = blueBox.getBounds();
+		currentNote = "x";
 		for (int i = 0; i<TunePanels.size(); i++) {
 			JPanel p = TunePanels.get(i);
 			noteBounds = p.getBounds();
 			if (noteBounds.intersects(box)) {
-				System.out.println(Tune.get(i).tone);
+				currentNote = Tune.get(i).tone;
 			}
 		}
 			
 	}
 
-	public void endGame(boolean won) {
-		System.out.println("end of game");
+	public void endGame() {
 		stillPlaying = false;
+		System.out.println("end of game");
+		if (points >= minPoints) {
+			System.out.println("you win!");
+			System.out.println(points);
+		} else {
+			System.out.println("you lose!");
+			System.out.println(points);
+		}
 	}
 
 	private class EndGameTimerTask extends TimerTask {
@@ -113,7 +125,7 @@ public class Game {
 
 		@Override
 		public void run(){
-			endGame(win);
+			endGame();
 			endThis.cancel();
 		}
 	}
