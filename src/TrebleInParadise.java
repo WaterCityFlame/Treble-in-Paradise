@@ -334,7 +334,7 @@ public class TrebleInParadise {
 			//A Button
 			JButton aButton = new JButton("A");
 			aButton.setBounds(100, 100, 150, 150);
-			aButton.setLocation(25,580);
+			aButton.setLocation(25,690);
 			level1Panel.add(aButton); 
 
 			aButton.addActionListener(new ActionListener() {
@@ -349,7 +349,7 @@ public class TrebleInParadise {
 			//B Button
 			JButton bButton = new JButton("B");
 			bButton.setBounds(100, 100, 150, 150);
-			bButton.setLocation(188,580);
+			bButton.setLocation(188,690);
 			level1Panel.add(bButton); 
 					
 			bButton.addActionListener(new ActionListener() {
@@ -364,31 +364,31 @@ public class TrebleInParadise {
 			//C Button
 			JButton cButton = new JButton("C");
 			cButton.setBounds(100, 100, 150, 150);
-			cButton.setLocation(377,580);
+			cButton.setLocation(377,690);
 			level1Panel.add(cButton); 
 					
 			//D Button
 			JButton dButton = new JButton("D");
 			dButton.setBounds(100, 100, 150, 150);
-			dButton.setLocation(565,580);
+			dButton.setLocation(565,690);
 			level1Panel.add(dButton);
 					
 			//E Button
 			JButton eButton = new JButton("E");
 			eButton.setBounds(100, 100, 150, 150);
-			eButton.setLocation(740,580);
+			eButton.setLocation(740,690);
 			level1Panel.add(eButton);
 					
 			//F Button
 			JButton fButton = new JButton("F");
 			fButton.setBounds(100, 100, 150, 150);
-			fButton.setLocation(900,580);
+			fButton.setLocation(900,690);
 			level1Panel.add(fButton);
 					
 			//G Button
 			JButton gButton = new JButton("G");
 			gButton.setBounds(100, 100, 150, 150);
-			gButton.setLocation(1060,580);
+			gButton.setLocation(1060,690);
 			level1Panel.add(gButton);
 			
 			gButton.addActionListener(new ActionListener() {
