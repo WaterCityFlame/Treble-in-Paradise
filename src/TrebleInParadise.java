@@ -299,6 +299,14 @@ public class TrebleInParadise {
 	     scoreText.setLocation(0, 2);
 	     scoreText.setOpaque(false);
 	     level1Panel.add(scoreText);
+	     
+	     //Score Value
+	     JLabel scoreValue = new JLabel("0");
+	     scoreValue.setFont(new Font("Serif", Font.PLAIN, 65));
+	     scoreValue.setBounds(50, 50, 50, 50);
+	     scoreValue.setLocation(250,125);
+	     scoreValue.setOpaque(false);
+	     level1Panel.add(scoreValue);
 
 	     //Level Text
 	     JLabel levelText = new JLabel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelText.png"));
@@ -342,6 +350,7 @@ public class TrebleInParadise {
 				public void actionPerformed(ActionEvent e) {
 					if (currentRound.currentNote.equals("a")) {
 						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
 					}
 					sound.noteSound("a");
 				}
@@ -357,6 +366,7 @@ public class TrebleInParadise {
 				public void actionPerformed(ActionEvent e) {
 					if (currentRound.currentNote.equals("b")) {
 						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
 					}
 					sound.noteSound("b");
 				}
@@ -372,6 +382,7 @@ public class TrebleInParadise {
 				public void actionPerformed(ActionEvent e) {
 					if (currentRound.currentNote.equals("c")) {
 						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
 					}
 					sound.noteSound("c");
 				}
@@ -387,6 +398,7 @@ public class TrebleInParadise {
 				public void actionPerformed(ActionEvent e) {
 					if (currentRound.currentNote.equals("d")) {
 						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
 					}
 					sound.noteSound("d");
 				}
@@ -402,6 +414,7 @@ public class TrebleInParadise {
 				public void actionPerformed(ActionEvent e) {
 					if (currentRound.currentNote.equals("e")) {
 						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
 					}
 					sound.noteSound("e");
 				}
@@ -417,6 +430,7 @@ public class TrebleInParadise {
 				public void actionPerformed(ActionEvent e) {
 					if (currentRound.currentNote.equals("f")) {
 						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
 					}
 					sound.noteSound("f");
 				}
@@ -432,6 +446,7 @@ public class TrebleInParadise {
 				public void actionPerformed(ActionEvent e) {
 					if (currentRound.currentNote.equals("g")) {
 						currentRound.points++;
+						scoreValue.setText("" + currentRound.points);
 					}
 					sound.noteSound("g");
 				}
