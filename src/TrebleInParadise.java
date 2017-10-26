@@ -76,13 +76,13 @@ public class TrebleInParadise {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(loginPanel);
 		frame.pack();
-		frame.setSize(1240,877);
+		frame.setSize(992,702);
 		frame.setVisible(true);
 	    
         userField=new JTextField();
-        userField.setBounds(5, 5, 280, 50);
+        userField.setBounds(5, 5, 225, 41);
         userField.setHorizontalAlignment(JTextField.CENTER);
-        userField.setLocation(482,300);
+        userField.setLocation(386,240);
         loginPanel.add(userField);
         
         JLabel wrongInfo = new JLabel("Whoops! Looks like you entered the wrong " +
@@ -95,16 +95,16 @@ public class TrebleInParadise {
         loginPanel.add(wrongInfo); 
         
         passField=new JTextField();
-        passField.setBounds(5, 5, 280, 50);
+        passField.setBounds(5, 5, 225, 41);
         passField.setHorizontalAlignment(JTextField.CENTER);
-        passField.setLocation(482,400);
+        passField.setLocation(386,320);
         loginPanel.add(passField);
         
         ImageIcon imgIconPlayButton = new ImageIcon("assets"+File.separator+"img"+File.separator+"loginScreenPlayButton.png");
         Image imgPlayButton = imgIconPlayButton.getImage();
         startBtn=new JButton(new ImageIcon(imgPlayButton.getScaledInstance(275,70,java.awt.Image.SCALE_SMOOTH)));
-        startBtn.setBounds(5, 5, 280, 75);
-        startBtn.setLocation(482,500);
+        startBtn.setBounds(5, 5, 225, 61);
+        startBtn.setLocation(386,400);
         loginPanel.add(startBtn);
         
 		
@@ -150,21 +150,21 @@ public class TrebleInParadise {
 		levelLockedBossPanel = new ImagePanel(new ImageIcon("assets"+File.separator+"img"+File.separator+"lockedBossLevelButton.png").getImage());
 
 		JLayeredPane levelMenuPanel = new JLayeredPane();
-		levelMenuPanel.setBounds(0,0,1240,877);
+		levelMenuPanel.setBounds(0,0,992,702);
 		frame.add(levelMenuPanel);
 
 		//Level 1 label
 		JLabel level1Label = new JLabel("1");
 		level1Label.setFont(new Font("Serif", Font.PLAIN, 40));
 		level1Label.setBounds(50, 50, 50, 50);
-		level1Label.setLocation(100,200);
+		level1Label.setLocation(80,160);
 		level1Label.setHorizontalTextPosition(SwingConstants.CENTER);
 		levelMenuPanel.add(level1Label);
 		
 		//Level 1 button
 		level1 = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"currentLevelButton.png"));	
-		level1.setBounds(18, 80, 209, 297);
-		level1.setLocation(5,50);
+		level1.setBounds(0, 0, 153, 174);
+		level1.setLocation(4,40);
 		level1.setOpaque(false);
 		level1.setContentAreaFilled(false);
 		level1.setBorderPainted(false);
@@ -174,14 +174,14 @@ public class TrebleInParadise {
 		JLabel level2Label = new JLabel("2");
 		level2Label.setFont(new Font("Serif", Font.PLAIN, 40));
 		level2Label.setBounds(50, 50, 50, 50);
-		level2Label.setLocation(265,380);
+		level2Label.setLocation(212,304);
 		level2Label.setHorizontalTextPosition(SwingConstants.CENTER);
 		levelMenuPanel.add(level2Label);
 		
 		//Level 2 button
 		level2 = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"lockedLevelButton.png"));
-		level2.setBounds(18, 80, 209, 297);
-		level2.setLocation(170,260);
+		level2.setBounds(0, 0, 153, 174);
+		level2.setLocation(136,208);
 		level2.setOpaque(false);
 		level2.setContentAreaFilled(false);
 		level2.setBorderPainted(false);
@@ -191,7 +191,7 @@ public class TrebleInParadise {
 		JLabel level3Label = new JLabel("3");
 		level3Label.setFont(new Font("Serif", Font.PLAIN, 40));
 		level3Label.setBounds(50, 50, 50, 50);
-		level3Label.setLocation(405,605);
+		level3Label.setLocation(324,484);
 		level3Label.setHorizontalTextPosition(SwingConstants.CENTER);
 		levelMenuPanel.add(level3Label);
 		
@@ -199,21 +199,21 @@ public class TrebleInParadise {
 		JLabel bossLabel = new JLabel("4");
 		bossLabel.setFont(new Font("Serif", Font.PLAIN, 40));
 		bossLabel.setBounds(50, 50, 50, 50);
-		bossLabel.setLocation(665,620);
+		bossLabel.setLocation(532,496);
 		bossLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 		levelMenuPanel.add(bossLabel);
 		
 		//Log out button
 		JButton logoutBtn = new JButton("Logout");
-		logoutBtn.setBounds(50, 100, 100, 30);
-		logoutBtn.setLocation(1050,60);
+		logoutBtn.setBounds(40, 80, 80, 24);
+		logoutBtn.setLocation(840,48);
 		levelMenuPanel.add(logoutBtn); 
 		
 		//Label with user's name
 		JLabel userLabel = new JLabel(username);
 		userLabel.setFont(new Font("Serif", Font.PLAIN, 40));
-		userLabel.setBounds(50, 100, 100, 30);
-		userLabel.setLocation(1050,20);
+		userLabel.setBounds(40, 80, 80, 24);
+		userLabel.setLocation(840,16);
 		levelMenuPanel.add(userLabel); 
 		
 		//Inserting ImagePanels into LayeredPanel
@@ -223,13 +223,13 @@ public class TrebleInParadise {
 		levelMenuPanel.add(levelBackgroundPanel);
 		
 		//Repositioning images
-		levelLockedPanel.setLocation(350,575);
-		levelLockedBossPanel.setLocation(600,565);
+		levelLockedPanel.setLocation(244,460);
+		levelLockedBossPanel.setLocation(480,452);
 		levelBackgroundPanel.setLocation(0,0);
 		
 
 		frame.pack();
-		frame.setSize(1240,877);
+		frame.setSize(992,702);
 		
 		//level2 = new JButton("2");
 		//level2.setBounds(158, 98, 73, 57);
@@ -267,8 +267,8 @@ public class TrebleInParadise {
 		
 		//Back Button
         JButton backButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"backButton.png"));	
-        backButton.setBounds(0, 80, 209, 297);
-        backButton.setLocation(1050, 2);
+        backButton.setBounds(0, 0, 67, 34);
+        backButton.setLocation(840, 2;
         backButton.setOpaque(false);
         backButton.setContentAreaFilled(false);
         backButton.setBorderPainted(false);
@@ -276,8 +276,8 @@ public class TrebleInParadise {
 		
 		//Restart Button
 		 JButton restartButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"restartButton.png"));	
-		 restartButton.setBounds(0, 80, 209, 297);
-		 restartButton.setLocation(960, 2);
+		 restartButton.setBounds(0, 0, 82, 60);
+		 restartButton.setLocation(768, 3);
 		 restartButton.setOpaque(false);
 		 restartButton.setContentAreaFilled(false);
 		 restartButton.setBorderPainted(false);
@@ -285,8 +285,8 @@ public class TrebleInParadise {
 	     
 	     //Pause Button
 	     JButton pauseButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"pauseButton.png"));	
-	     pauseButton.setBounds(0, 80, 209, 297);
-	     pauseButton.setLocation(880, 2);
+	     pauseButton.setBounds(0, 0, 38, 54);
+	     pauseButton.setLocation(704, 2);
 	     pauseButton.setOpaque(false);
 	     pauseButton.setContentAreaFilled(false);
 	     pauseButton.setBorderPainted(false);
@@ -294,15 +294,15 @@ public class TrebleInParadise {
 	     
 	     //Score Text
 	     JLabel scoreText = new JLabel(new ImageIcon("assets"+File.separator+"img"+File.separator+"scoreText.png"));
-	     scoreText.setBounds(0, 80, 209, 297);
+	     scoreText.setBounds(0, 64, 167, 238);
 	     scoreText.setLocation(0, 2);
 	     scoreText.setOpaque(false);
 	     level1Panel.add(scoreText);
 	     
 	     //Level Text
 	     JLabel levelText = new JLabel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelText.png"));
-	     levelText.setBounds(0, 80, 209, 297);
-	     levelText.setLocation(430, 2);
+	     levelText.setBounds(0, 64, 167, 238);
+	     levelText.setLocation(344, 2);
 	     levelText.setOpaque(false);
 	     level1Panel.add(levelText);
 	     
