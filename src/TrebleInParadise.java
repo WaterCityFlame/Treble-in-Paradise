@@ -295,7 +295,7 @@ public class TrebleInParadise {
 	    
 	    //Score Value
 	    JLabel scoreValue = new JLabel("0");
-	    scoreValue.setFont(new Font("Serif", Font.PLAIN, 80));
+	    scoreValue.setFont(new Font("Serif", Font.PLAIN, 50));
 	    scoreValue.setBounds(50, 50, 80, 80);
 	    scoreValue.setLocation(215,108);
 	    scoreValue.setOpaque(false);
@@ -310,7 +310,7 @@ public class TrebleInParadise {
 
 	    //Level Number
 	    JLabel levelNum = new JLabel("1");
-	    levelNum.setFont(new Font("Serif", Font.PLAIN, 80));
+	    levelNum.setFont(new Font("Serif", Font.PLAIN, 50));
 	    levelNum.setBounds(50, 50, 80, 80);
 	    levelNum.setLocation(640,103);
 	    levelNum.setOpaque(false);
@@ -335,7 +335,7 @@ public class TrebleInParadise {
 
 		//Treble clef help message
 		JLabel help = new JLabel("Click the treble clef (to the left) for help.");
-		help.setFont(new Font("Serif", Font.PLAIN, 35));
+		help.setFont(new Font("Serif", Font.PLAIN, 30));
 		help.setBounds(1000, 100, 1000, 50);
 		help.setLocation(150,250);
 		help.setVisible(true);
@@ -455,11 +455,26 @@ public class TrebleInParadise {
 
 		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 					level1Panel.setVisible(false);
 					levelScreen();
+					currentRound.end();
 
 			}
 		});
+		
+		restartButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+					currentRound.end();
+					currentRound.points = 0;
+					scoreValue.setText("" + currentRound.points);
+					currentRound.display(frame);
+
+			}
+		});
+		
+		
 
 		helpButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -478,4 +493,5 @@ public class TrebleInParadise {
 
 		currentRound.play(frame,help);
 	}
+	
 }

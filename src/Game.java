@@ -31,6 +31,7 @@ public class Game {
 	private int minPoints;
 
 	public Game(int level) {
+		
 		tune = new ArrayList<Note>();
 		tunePanels = new ArrayList<ImagePanel>();
 		notes = new JPanel();
@@ -49,7 +50,19 @@ public class Game {
 			tune.add(new Note("g", 1));
 			minPoints = 6;
 		}
+			
 	};
+	
+	public void end() {
+	
+		for (int i = 0; i<tune.size(); i++) {
+			ImagePanel currentNote = tune.get(i).noteImg;
+			currentNote.setVisible(false);
+			notes.remove(currentNote);
+			tunePanels.remove(currentNote);
+		}
+		
+	}
 
 	public void display(JFrame background) {
 		int x = 0;
