@@ -177,9 +177,9 @@ public class Game {
 				noteImg.setVisible(false);
 			}
 
-			if (tone.equals("b")) {height = 385;}
-			if (tone.equals("a")) {height = 415;}
-			if (tone.equals("g")) {height = 445;}
+			if (tone.equals("b")) {height = 485;}
+			if (tone.equals("a")) {height = 515;}
+			if (tone.equals("g")) {height = 545;}
 		}
 	}
 };
