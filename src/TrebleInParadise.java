@@ -109,34 +109,31 @@ public class TrebleInParadise {
         loginPanel.add(startBtn);
 
 
-      //checks username and password when start button pressed
-      		//and goes to main level screen if successful
-      		startBtn.addActionListener(new ActionListener() {
-      			public void actionPerformed(ActionEvent e) {
-      				String inUser = userField.getText();
-      				String inpass = passField.getText();
-      				if(inUser.equals(username) && inpass.equals(password)) {
-      					loginPanel.setVisible(false);
-      					loginPanel.setEnabled(false); //So action listeners not clickable in other panels
-      					levelScreen();
-      				}
-      				else {
-      					wrongInfo.setVisible(true);
-      				}
+      	//checks username and password when start button pressed
+      	//and goes to main level screen if successful
+      	startBtn.addActionListener(new ActionListener() {
+      		public void actionPerformed(ActionEvent e) {
+      			String inUser = userField.getText();
+      			String inpass = passField.getText();
+      			if(inUser.equals(username) && inpass.equals(password)) {
+      				loginPanel.setVisible(false);
+      				loginPanel.setEnabled(false); //So action listeners not clickable in other panels
+      				levelScreen();
       			}
-      		});
+      			else {
+      				wrongInfo.setVisible(true);
+      			}
+      		}
+      	});
 
-      		//removes wrong information message after 10 seconds
-      				int delay = 10000; //milliseconds
-      				   ActionListener taskPerformer = new ActionListener() {
-      				       public void actionPerformed(ActionEvent e) {
-      				           wrongInfo.setVisible(false);
-      				       }
-      				   };
-      				   new Timer(delay, taskPerformer).start();
-
-
-
+      	//removes wrong information message after 10 seconds
+      	int delay = 10000; //milliseconds
+      	ActionListener taskPerformer = new ActionListener() {
+      	    public void actionPerformed(ActionEvent e) {
+      	        wrongInfo.setVisible(false);
+      	    }
+      	};
+      	new Timer(delay, taskPerformer).start();
 	}
 
 	private void levelScreen() {
@@ -242,17 +239,13 @@ public class TrebleInParadise {
 			public void actionPerformed(ActionEvent e) {
 				levelMenuPanel.setVisible(false);
 				login();
-
-
 			}
 		});
 
 		level1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 					levelMenuPanel.setVisible(false);
 					level1();
-
 			}
 		});
 	}
@@ -268,190 +261,190 @@ public class TrebleInParadise {
 
 		//Back Button
         JButton backButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"backButton.png"));
-        backButton.setBounds(0, 80, 209, 297);
-        backButton.setLocation(1050, 2);
+        backButton.setBounds(0, 80, 84, 43);
+        backButton.setLocation(1110, 125);
         backButton.setOpaque(false);
         backButton.setContentAreaFilled(false);
         backButton.setBorderPainted(false);
 		level1Panel.add(backButton);
 
 		//Restart Button
-		 JButton restartButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"restartButton.png"));
-		 restartButton.setBounds(0, 80, 209, 297);
-		 restartButton.setLocation(960, 2);
-		 restartButton.setOpaque(false);
-		 restartButton.setContentAreaFilled(false);
-		 restartButton.setBorderPainted(false);
-	     level1Panel.add(restartButton);
+		JButton restartButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"restartButton.png"));
+		restartButton.setBounds(0, 80, 209, 297);
+		restartButton.setLocation(960, 2);
+		restartButton.setOpaque(false);
+		restartButton.setContentAreaFilled(false);
+		restartButton.setBorderPainted(false);
+	    level1Panel.add(restartButton);
 
-	     //Pause Button
-	     JButton pauseButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"pauseButton.png"));
-	     pauseButton.setBounds(0, 80, 209, 297);
-	     pauseButton.setLocation(880, 2);
-	     pauseButton.setOpaque(false);
-	     pauseButton.setContentAreaFilled(false);
-	     pauseButton.setBorderPainted(false);
-	     level1Panel.add(pauseButton);
+	    //Pause Button
+	    JButton pauseButton = new JButton(new ImageIcon("assets"+File.separator+"img"+File.separator+"pauseButton.png"));
+	    pauseButton.setBounds(0, 80, 209, 297);
+	    pauseButton.setLocation(880, 2);
+	    pauseButton.setOpaque(false);
+	    pauseButton.setContentAreaFilled(false);
+	    pauseButton.setBorderPainted(false);
+	    level1Panel.add(pauseButton);
 
-	     //Score Text
-	     JLabel scoreText = new JLabel(new ImageIcon("assets"+File.separator+"img"+File.separator+"scoreText.png"));
-	     scoreText.setBounds(0, 80, 209, 297);
-	     scoreText.setLocation(0, 2);
-	     scoreText.setOpaque(false);
-	     level1Panel.add(scoreText);
-	     
-	     //Score Value
-	     JLabel scoreValue = new JLabel("0");
-	     scoreValue.setFont(new Font("Serif", Font.PLAIN, 65));
-	     scoreValue.setBounds(50, 50, 50, 50);
-	     scoreValue.setLocation(250,125);
-	     scoreValue.setOpaque(false);
-	     level1Panel.add(scoreValue);
+	    //Score Text
+	    JLabel scoreText = new JLabel(new ImageIcon("assets"+File.separator+"img"+File.separator+"scoreText.png"));
+	    scoreText.setBounds(0, 80, 209, 297);
+	    scoreText.setLocation(0, 2);
+	    scoreText.setOpaque(false);
+	    level1Panel.add(scoreText);
+	    
+	    //Score Value
+	    JLabel scoreValue = new JLabel("0");
+	    scoreValue.setFont(new Font("Serif", Font.PLAIN, 80));
+	    scoreValue.setBounds(50, 50, 80, 80);
+	    scoreValue.setLocation(215,108);
+	    scoreValue.setOpaque(false);
+	    level1Panel.add(scoreValue);
 
-	     //Level Text
-	     JLabel levelText = new JLabel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelText.png"));
-	     levelText.setBounds(0, 80, 209, 297);
-	     levelText.setLocation(430, 2);
-	     levelText.setOpaque(false);
-	     level1Panel.add(levelText);
+	    //Level Text
+	    JLabel levelText = new JLabel(new ImageIcon("assets"+File.separator+"img"+File.separator+"levelText.png"));
+	    levelText.setBounds(0, 80, 209, 297);
+	    levelText.setLocation(430, 2);
+	    levelText.setOpaque(false);
+	    level1Panel.add(levelText);
 
-	     //Treble clef help button
-		    JButton helpButton = new JButton("");
-			helpButton.setBounds(70, 180, 60, 100);
-			helpButton.setOpaque(false);
-			helpButton.setContentAreaFilled(false);
-			helpButton.setBorderPainted(false);
-			level1Panel.add(helpButton);
+	    //Level Number
+	    JLabel levelNum = new JLabel("1");
+	    levelNum.setFont(new Font("Serif", Font.PLAIN, 80));
+	    levelNum.setBounds(50, 50, 80, 80);
+	    levelNum.setLocation(640,103);
+	    levelNum.setOpaque(false);
+	    level1Panel.add(levelNum);
 
-			//Treble clef help message
-			JLabel helpMessage = new JLabel("Click on the button that matches the note when" +
-			" it gets to the box.");
-			helpMessage.setFont(new Font("Serif", Font.PLAIN, 35));
-			helpMessage.setBounds(50, 50, 50, 50);
-			helpMessage.setLocation(1050,20);
-			helpMessage.setVisible(false);
-			level1Panel.add(helpMessage);
+	    //Treble clef help button
+		JButton helpButton = new JButton("");
+		helpButton.setBounds(70, 220, 60, 100);
+		helpButton.setOpaque(false);
+		helpButton.setContentAreaFilled(false);
+		helpButton.setBorderPainted(false);
+		level1Panel.add(helpButton);
 
-			//Treble clef help message
-			JLabel help = new JLabel("Click the treble clef (to the left) for help.");
-			help.setFont(new Font("Serif", Font.PLAIN, 45));
-			help.setBounds(1000, 100, 800, 50);
-			help.setLocation(150,200);
-			help.setVisible(true);
-			level1Panel.add(help);
+		//Treble clef help message
+		JLabel helpMessage = new JLabel("Click on the button that matches the note when" +
+		" it gets to the box.");
+		helpMessage.setFont(new Font("Serif", Font.PLAIN, 35));
+		helpMessage.setBounds(50, 50, 50, 50);
+		helpMessage.setLocation(1050,500);
+		helpMessage.setVisible(false);
+		level1Panel.add(helpMessage);
 
-			//A Button
-			JButton aButton = new JButton("A");
-			aButton.setBounds(100, 100, 150, 150);
-			aButton.setLocation(25,690);
-			level1Panel.add(aButton);
+		//Treble clef help message
+		JLabel help = new JLabel("Click the treble clef (to the left) for help.");
+		help.setFont(new Font("Serif", Font.PLAIN, 45));
+		help.setBounds(1000, 100, 800, 50);
+		help.setLocation(150,250);
+		help.setVisible(true);
+		level1Panel.add(help);
 
-			aButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (currentRound.currentNote.equals("a")) {
-						currentRound.points++;
-						scoreValue.setText("" + currentRound.points);
-					}
-					sound.noteSound("a");
+		//A Button
+		JButton aButton = new JButton("A");
+		aButton.setBounds(100, 100, 150, 150);
+		aButton.setLocation(25,690);
+		level1Panel.add(aButton);
+		aButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (currentRound.currentNote.equals("a")) {
+					currentRound.points++;
+					scoreValue.setText("" + currentRound.points);
 				}
-			});
+				sound.noteSound("a");
+			}
+		});
 
-			//B Button
-			JButton bButton = new JButton("B");
-			bButton.setBounds(100, 100, 150, 150);
-			bButton.setLocation(188,690);
-			level1Panel.add(bButton);
-
-			bButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (currentRound.currentNote.equals("b")) {
-						currentRound.points++;
-						scoreValue.setText("" + currentRound.points);
-					}
-					sound.noteSound("b");
+		//B Button
+		JButton bButton = new JButton("B");
+		bButton.setBounds(100, 100, 150, 150);
+		bButton.setLocation(188,690);
+		level1Panel.add(bButton);
+		bButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (currentRound.currentNote.equals("b")) {
+					currentRound.points++;
+					scoreValue.setText("" + currentRound.points);
 				}
-			});
+				sound.noteSound("b");
+			}
+		});
 
-			//C Button
-			JButton cButton = new JButton("C");
-			cButton.setBounds(100, 100, 150, 150);
-			cButton.setLocation(377,690);
-			level1Panel.add(cButton);
-
-			cButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (currentRound.currentNote.equals("c")) {
-						currentRound.points++;
-						scoreValue.setText("" + currentRound.points);
-					}
-					sound.noteSound("c");
+		//C Button
+		JButton cButton = new JButton("C");
+		cButton.setBounds(100, 100, 150, 150);
+		cButton.setLocation(377,690);
+		level1Panel.add(cButton);
+		cButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (currentRound.currentNote.equals("c")) {
+					currentRound.points++;
+					scoreValue.setText("" + currentRound.points);
 				}
-			});
+				sound.noteSound("c");
+			}
+		});
 
-			//D Button
-			JButton dButton = new JButton("D");
-			dButton.setBounds(100, 100, 150, 150);
-			dButton.setLocation(565,690);
-			level1Panel.add(dButton);
-
-			dButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (currentRound.currentNote.equals("d")) {
-						currentRound.points++;
-						scoreValue.setText("" + currentRound.points);
-					}
-					sound.noteSound("d");
+		//D Button
+		JButton dButton = new JButton("D");
+		dButton.setBounds(100, 100, 150, 150);
+		dButton.setLocation(565,690);
+		level1Panel.add(dButton);
+		dButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (currentRound.currentNote.equals("d")) {
+					currentRound.points++;
+					scoreValue.setText("" + currentRound.points);
 				}
-			});
+				sound.noteSound("d");
+			}
+		});
 
-			//E Button
-			JButton eButton = new JButton("E");
-			eButton.setBounds(100, 100, 150, 150);
-			eButton.setLocation(740,690);
-			level1Panel.add(eButton);
-
-			eButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (currentRound.currentNote.equals("e")) {
-						currentRound.points++;
-						scoreValue.setText("" + currentRound.points);
-					}
-					sound.noteSound("e");
+		//E Button
+		JButton eButton = new JButton("E");
+		eButton.setBounds(100, 100, 150, 150);
+		eButton.setLocation(740,690);
+		level1Panel.add(eButton);
+		eButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (currentRound.currentNote.equals("e")) {
+					currentRound.points++;
+					scoreValue.setText("" + currentRound.points);
 				}
-			});
+				sound.noteSound("e");
+			}
+		});
 
-			//F Button
-			JButton fButton = new JButton("F");
-			fButton.setBounds(100, 100, 150, 150);
-			fButton.setLocation(900,690);
-			level1Panel.add(fButton);
-
-			fButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (currentRound.currentNote.equals("f")) {
-						currentRound.points++;
-						scoreValue.setText("" + currentRound.points);
-					}
-					sound.noteSound("f");
+		//F Button
+		JButton fButton = new JButton("F");
+		fButton.setBounds(100, 100, 150, 150);
+		fButton.setLocation(900,690);
+		level1Panel.add(fButton);
+		fButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (currentRound.currentNote.equals("f")) {
+					currentRound.points++;
+					scoreValue.setText("" + currentRound.points);
 				}
-			});
+				sound.noteSound("f");
+			}
+		});
 
-			//G Button
-			JButton gButton = new JButton("G");
-			gButton.setBounds(100, 100, 150, 150);
-			gButton.setLocation(1060,690);
-			level1Panel.add(gButton);
-
-			gButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (currentRound.currentNote.equals("g")) {
-						currentRound.points++;
-						scoreValue.setText("" + currentRound.points);
-					}
-					sound.noteSound("g");
+		//G Button
+		JButton gButton = new JButton("G");
+		gButton.setBounds(100, 100, 150, 150);
+		gButton.setLocation(1060,690);
+		level1Panel.add(gButton);
+		gButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (currentRound.currentNote.equals("g")) {
+					currentRound.points++;
+					scoreValue.setText("" + currentRound.points);
 				}
-			});
-
+				sound.noteSound("g");
+			}
+		});
 
 		//Label with user's name
 		JLabel userLabel = new JLabel(username);
@@ -472,7 +465,7 @@ public class TrebleInParadise {
 			public void actionPerformed(ActionEvent e) {
 
 				help.setVisible(false);
-				helpMessage.setBounds(175, 80, 1000, 297);
+				helpMessage.setBounds(160, 130, 1000, 297);
 			    helpMessage.setOpaque(false);
 			    level1Panel.add(helpMessage);
 			    helpMessage.setVisible(true);
@@ -489,11 +482,6 @@ public class TrebleInParadise {
 		   };
 		   new Timer(delay, taskPerformer).start();
 
-
 		currentRound.play(frame);
 	}
-
-
-
-
 }

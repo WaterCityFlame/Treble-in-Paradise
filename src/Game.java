@@ -19,10 +19,14 @@ public class Game {
 
 	private ArrayList<Note> Tune;
 	public ArrayList<ImagePanel> TunePanels;
+
 	public JPanel Notes;
 	public JPanel blueBox;
+
 	public String currentNote;
+	
 	public boolean stillPlaying;
+
 	public int points;
 	private int minPoints;
 
@@ -74,7 +78,6 @@ public class Game {
 		}
 		background.getContentPane().add(blueBox, 2);
 		background.getContentPane().add(Notes, 3);
-
 	};
 
 	public void play(JFrame background) {
