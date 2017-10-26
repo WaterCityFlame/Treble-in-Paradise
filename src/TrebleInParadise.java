@@ -325,18 +325,18 @@ public class TrebleInParadise {
 		level1Panel.add(helpButton);
 
 		//Treble clef help message
-		JLabel helpMessage = new JLabel("Click on the button that matches the note when" +
-		" it gets to the box.");
-		helpMessage.setFont(new Font("Serif", Font.PLAIN, 35));
-		helpMessage.setBounds(50, 50, 50, 50);
-		helpMessage.setLocation(1050,500);
-		helpMessage.setVisible(false);
-		level1Panel.add(helpMessage);
+		// JLabel helpMessage = new JLabel("Click on the button that matches the note when" +
+		// " it gets to the box.");
+		// helpMessage.setFont(new Font("Serif", Font.PLAIN, 35));
+		// helpMessage.setBounds(50, 50, 50, 50);
+		// helpMessage.setLocation(1050,500);
+		// helpMessage.setVisible(false);
+		// level1Panel.add(helpMessage);
 
 		//Treble clef help message
 		JLabel help = new JLabel("Click the treble clef (to the left) for help.");
-		help.setFont(new Font("Serif", Font.PLAIN, 45));
-		help.setBounds(1000, 100, 800, 50);
+		help.setFont(new Font("Serif", Font.PLAIN, 35));
+		help.setBounds(1000, 100, 1000, 50);
 		help.setLocation(150,250);
 		help.setVisible(true);
 		level1Panel.add(help);
@@ -463,13 +463,7 @@ public class TrebleInParadise {
 
 		helpButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				help.setVisible(false);
-				helpMessage.setBounds(160, 130, 1000, 297);
-			    helpMessage.setOpaque(false);
-			    level1Panel.add(helpMessage);
-			    helpMessage.setVisible(true);
-
+				help.setText("Click on the button that matches the note when it gets to the box");
 			}
 		});
 
@@ -477,11 +471,11 @@ public class TrebleInParadise {
 		int delay = 10000; //milliseconds
 		   ActionListener taskPerformer = new ActionListener() {
 		       public void actionPerformed(ActionEvent e) {
-		           helpMessage.setVisible(false);
+		           help.setText("");
 		       }
 		   };
 		   new Timer(delay, taskPerformer).start();
 
-		currentRound.play(frame);
+		currentRound.play(frame,help);
 	}
 }
