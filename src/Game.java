@@ -30,10 +30,10 @@ public class Game {
 	public int points;
 	private int minPoints;
 	private int currentLevel;
-	
-	
+
+
 	public Game(int level) {
-		
+
 		currentLevel = level;
 		tune = new ArrayList<Note>();
 		tunePanels = new ArrayList<ImagePanel>();
@@ -69,7 +69,7 @@ public class Game {
 			tune.add(new Note("g", 1));
 			minPoints = 6; */
 		}
-		
+
 		if(level == 2) {
 			tune.add(new Note("a", 1));
 			tune.add(new Note("a", 1));
@@ -83,18 +83,18 @@ public class Game {
 			tune.add(new Note("a", 1));
 			minPoints = 8;
 		}
-			
+
 	};
-	
+
 	public void end() {
-	
+
 		for (int i = 0; i<tune.size(); i++) {
 			ImagePanel currentNote = tune.get(i).noteImg;
 			currentNote.setVisible(false);
 			notes.remove(currentNote);
 			tunePanels.remove(currentNote);
 		}
-		
+
 	}
 
 	public void display(JFrame background) {
@@ -165,7 +165,7 @@ public class Game {
 		else {
 			endMessage.setText("Aww you missed it. Let's try it again!");
 		}
-		
+
 	}
 	public void endGame(JFrame background,JLabel help) {
 		stillPlaying = false;
@@ -193,7 +193,7 @@ public class Game {
 			}
 			else if(currentLevel == -2)
 				help.setText("Good job!");
-			//If it's not a tutorial 
+			//If it's not a tutorial
 			else {
 			help.setText("You won with "+ points +"! Press the back button to return to the level menu.");
 			//incrementCurrentLevel(currentLevel);
