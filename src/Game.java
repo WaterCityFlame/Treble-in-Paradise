@@ -266,9 +266,9 @@ public class Game {
 				noteImg.setVisible(false);
 			}
 
-			if (tone.equals("b")) {height = 485;}
-			if (tone.equals("a")) {height = 515;}
-			if (tone.equals("g")) {height = 545;}
+			if (tone.equals("b")) {height = 330;}
+			if (tone.equals("a")) {height = 360;}
+			if (tone.equals("g")) {height = 390;}
 		}
 	}
 };
